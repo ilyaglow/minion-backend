@@ -10,7 +10,7 @@ setup_requires = [
 
 install_requires = [
     'six>=1.7',
-    'celery>=3.0.19',
+    'celery==3.0.19',
     'flask>=0.9',
     'pymongo==2.8.1', # bug in 3.0 causes false ConnectionError; fixed in trunk, TODO update once fixed
     'requests>=1.2.2',
@@ -19,7 +19,7 @@ install_requires = [
     'gunicorn>=0.17.4',
     'ipaddress>=1.0.4',
     'netaddr>=0.7.11',
-    'celerybeat-mongo>=0.0.5'
+    'celerybeat-mongo==0.0.5'
 ]
 
 plugins_requires = [
