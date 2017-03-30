@@ -12,7 +12,6 @@
 ### END INIT INFO
 
 MINION_BASE_DIRECTORY=/opt/minion/minion-backend
-MINION_ENV_DIRECTORY=/opt/minion/minion-env
 
 USER=minion
 GROUP=minion
@@ -73,7 +72,7 @@ case "$1" in
       fi
     fi
 
-    if [ -d "${MINION_BASE_DIRECTORY}" ] && [ -d "${MINION_ENV_DIRECTORY}" ]; then
+    if [ -d "${MINION_BASE_DIRECTORY}" ]; then
         if [ ! -d $RUN ]; then
             # Create the minion run directory
             install -m 700 -o minion -g minion -d $RUN 2>/dev/null
@@ -91,9 +90,6 @@ case "$1" in
           echo "\033[0;31mFAIL\033[0m (already running)"
             exit 1
         fi
-
-        # Activate Minion environment
-        . ${MINION_ENV_DIRECTORY}/bin/activate
 
         # Start Minion
         start-stop-daemon --start --chuid $USER --group $GROUP --pidfile $PID --exec \
