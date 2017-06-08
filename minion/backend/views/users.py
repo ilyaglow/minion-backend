@@ -136,7 +136,7 @@ def create_user():
 
     new_user = { 'id': str(uuid.uuid4()),
                  'status': 'invited' if user.get('invitation') else 'active',
-                 'email':  user['email'],
+                 'email':  user['email'].lower(),
                  'name': user.get('name'),
                  'role': user['role'],
                  'created': datetime.datetime.utcnow(),
